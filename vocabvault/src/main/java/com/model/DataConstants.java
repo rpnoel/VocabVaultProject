@@ -1,7 +1,7 @@
 package com.model;
 public abstract class DataConstants {
-    protected static final String USER_FILE_NAME = "/user.json";
-    protected static final String USER_FILE_NAME_JSON = "VocabVault\\src\\main\\java\\data\\user.json";
+    protected static final String USER_FILE_NAME = "vocabvault\\src\\main\\java\\com\\data\\user.json";
+    protected static final String USER_FILE_NAME_JSON = "vocabvault\\src\\main\\java\\com\\data\\user.json";
     protected static final String USER_ID = "userID";
     protected static final String USERNAME = "username";
     protected static final String EMAIL = "email";
