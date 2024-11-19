@@ -10,7 +10,7 @@
     <children>
         <Label text="Welcome to VocabVault" />
         <Button fx:id="loginBtn" text="Log In" onAction="#clickLogin" />
-        <Button fx:id="signupBtn" text="Sign Up" onAction="#clickSignup"/>
+        <Button fx:id="signupBtn" text="Sign Up" onAction="#clickSignUp"/>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
