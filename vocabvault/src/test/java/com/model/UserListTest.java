@@ -11,7 +11,7 @@ public class UserListTest {
 
     @Test
 public void testHaveUserValidFirstItem() {
-		boolean hasAmy = userList.haveUser("asmith");
+		boolean hasAmy = userList.haveUser("ttomacka");
 		assertTrue(hasAmy);
 	}
 }
