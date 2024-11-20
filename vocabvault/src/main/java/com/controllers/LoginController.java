@@ -11,4 +11,8 @@ public class LoginController {
         //check for sucessful login
         App.setRoot("home");
     }
+    @FXML
+    private void clickBack(ActionEvent event) throws IOException {
+        App.setRoot("start");
+    }
 }

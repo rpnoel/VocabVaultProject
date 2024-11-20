@@ -13,6 +13,7 @@
         <TextField fx:id="username"/>
         <TextField fx:id="password"/>
         <Button fx:id="loginBtn" text="Log In" onAction="#clickLogin"/>
+        <Button fx:id="backBtn" text="Back" onAction="#clickBack"/>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

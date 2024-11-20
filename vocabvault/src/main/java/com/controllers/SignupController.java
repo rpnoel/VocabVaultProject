@@ -12,5 +12,9 @@ public class SignupController {
         //create user
         //log user in
         App.setRoot("home");
-    } 
+    }
+    @FXML
+    private void clickBack(ActionEvent event) throws IOException {
+        App.setRoot("start");
+    }
 }

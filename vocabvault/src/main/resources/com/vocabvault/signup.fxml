@@ -10,11 +10,12 @@
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SignupController">
     <children>
         <Label text="Sign Up" />
-        <TextField fx:id="firstName"/>
-        <textField fx:id="lastName"/>
+        <TextField fx:id="firstname"/>
+        <TextField fx:id="lastname"/>
         <TextField fx:id="username"/>
         <TextField fx:id="password"/>
         <Button fx:id="signupBtn" text="Sign Up" onAction="#clickSignUp"/>
+        <Button fx:id="backBtn" text="Back" onAction="#clickBack"/>
     </children>
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
