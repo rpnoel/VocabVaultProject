@@ -17,7 +17,7 @@ public class VocabVaultFACADE {
     private UserProgressTracker usrProg;
     private static VocabVaultFACADE facade;
 
-    public VocabVaultFACADE(){}
+    public VocabVaultFACADE(){
         userList = UserList.getInstance();
     }
 
