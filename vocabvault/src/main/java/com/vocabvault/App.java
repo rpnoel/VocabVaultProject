@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
+import com.model.VocabVaultFACADE;
 import java.io.IOException;
 
 /**
@@ -14,9 +14,11 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    private static VocabVaultFACADE facade;
 
     @Override
     public void start(Stage stage) throws IOException {
+        facade = new VocabVaultFACADE();
         scene = new Scene(loadFXML("start"), 640, 480);
         stage.setScene(scene);
         stage.show();
@@ -34,5 +36,4 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
