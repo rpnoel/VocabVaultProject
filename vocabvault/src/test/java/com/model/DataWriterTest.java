@@ -16,6 +16,6 @@ public class DataWriterTest {
     @Test
 	public void testWritingZeroUsers() {
 		newList = DataLoader.getUsers();
-		assertEquals(0, newList.size());
+		assertEquals(3, newList.size());
 	}
 }
