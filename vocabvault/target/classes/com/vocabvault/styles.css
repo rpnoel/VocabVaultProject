@@ -1,0 +1,17 @@
+.root{
+    -fx-font-size: 16pt;
+    -fx-font-family: "Helvetica";
+    -fx-base: #1a1b1b;
+    -fx-background: #151415;
+}
+
+.button {
+    -fx-background-color: #1a1b1b;
+    -fx-text-fill: white;
+}
+
+.text-field {
+    -fx-background-color: #1a1b1b;
+    -fx-text-fill: #939598;
+    -fx-prompt-text-fill: "Username";
+}
