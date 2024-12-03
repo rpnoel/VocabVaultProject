@@ -15,9 +15,17 @@ public class VocabVaultFACADE {
     private UserList userList;
     private User currentUser;
     private UserProgressTracker usrProg;
+    private static VocabVaultFACADE facade;
 
     public VocabVaultFACADE(){
         userList = UserList.getInstance();
+    }
+
+    public static VocabVaultFACADE getInstance() {
+        if (facade == null) {
+            facade = new VocabVaultFACADE();
+        }
+        return facade;
     }
 
     public boolean login(String userName, String password){
