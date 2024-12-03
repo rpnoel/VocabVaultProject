@@ -14,13 +14,14 @@ public class LoginController {
     @FXML
     private TextField password;
     @FXML
-    private Label errorLbl;
+    private Label errorLbl = new Label();
 
 
     @FXML
     private void clickLogin(ActionEvent event) throws IOException {
         String user = username.getText();
         String pass = password.getText();
+
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         if (!(facade.login(user, pass))) {
             errorLbl.setText("Incorrect username.");
