@@ -8,7 +8,7 @@ import com.vocabvault.App;
 public class StartController {
 
     @FXML
-    private void clickLogin(ActionEvent event) throws IOException {
+    private void clickLogIn(ActionEvent event) throws IOException {
         App.setRoot("login");
     }
     @FXML
