@@ -1,25 +1,18 @@
 package com.controllers;
 
 import javafx.fxml.Initializable;
-import javafx.scene.control.Hyperlink;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.control.Pagination;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.TextArea;
 import javafx.util.Callback;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.model.Book;
 import com.model.BookReader;
 import com.vocabvault.App;
-
-import java.util.ArrayList;
 
 public class GoldilocksController implements Initializable {
     private BookReader reader = new BookReader("vocabvault\\txt\\goldilocksESP.txt");
