@@ -52,7 +52,7 @@ public class BookReader {
      * @return the Book object
      */
     public Book getBook() {
-        return this.book;
+        return book;
     }
 
     /**
@@ -63,19 +63,25 @@ public class BookReader {
     @Override
     public String toString() {
         if (book != null) {
-            return "Title: " + book.getTitle() + "\nBody:\n" + book.getText() + "\nVocabulary Words:\n" + book.getVocabWords();
+            return "Title: " + book.getTitle() + "\n" + book.getText() + "\nVocabulary Words:\n" + book.getVocabWords();
         } else {
             return "No book data available.";
         }
     }
 
-    /**
-     * Main method for testing the BookReader functionality.
-     * 
-     * @param args command-line arguments (not used)
-     */
-    public static void main(String[] args) {
-
+    public String[] switchToPage() {
+        String bookString = book.getText();
+        String[] pageBook = bookString.split("\n\n");
+        return pageBook;
     }
+
+    public static void main(String[] args) {
+        BookReader reader = new BookReader("vocabvault\\txt\\goldilocksESP.txt");
+        String[] pageBook = reader.switchToPage();
+        for (int i = 0; i < pageBook.length; i++) {
+            System.out.println(pageBook[i]);
+        }
+    }
+    
 }
 

@@ -16,7 +16,6 @@ public class LoginController {
     @FXML
     private Label errorLbl = new Label();
 
-
     @FXML
     private void clickLogIn(ActionEvent event) throws IOException {
         String user = username.getText();
@@ -25,6 +24,7 @@ public class LoginController {
         if (!(facade.login(user, pass))) {
             errorLbl.setVisible(true);
         } else {
+            facade.login(user, pass);
             App.setRoot("home");
         }
     }
