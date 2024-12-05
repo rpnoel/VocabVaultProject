@@ -12,7 +12,7 @@
     <children>
         <Label text="Log In" />
         <TextField fx:id="username" promptText="Username" />
-        <TextField fx:id="password" promptText="Password" />
+        <PasswordField fx:id="password" promptText="Password" />
       <Label fx:id="errorLbl" text="Incorrect username or password." textFill="#f70909" visible="false">
          <font>
             <Font size="10.0" />

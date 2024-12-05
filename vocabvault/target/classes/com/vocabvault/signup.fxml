@@ -15,7 +15,7 @@
         <TextField fx:id="lastName" promptText="Last Name" />
       <TextField fx:id="email" promptText="Email" />
         <TextField fx:id="username" promptText="Username" />
-        <TextField fx:id="password" promptText="Password" />
+        <PasswordField fx:id="password" promptText="Password" />
       <Label fx:id="errorLbl" text="That user already exists." textFill="#f70909" visible="false">
          <font>
             <Font size="10.0" />

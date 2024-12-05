@@ -10,7 +10,6 @@ import com.vocabvault.App;
 public class LibraryController {
     @FXML
     private void clickGoldilocks(ActionEvent event) throws IOException {
-        VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         App.setRoot("goldilocks");
     }
 
