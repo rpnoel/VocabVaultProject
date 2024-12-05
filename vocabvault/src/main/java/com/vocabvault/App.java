@@ -8,9 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-
-import com.model.UserList;
-import com.model.VocabVaultFACADE;
 import java.io.IOException;
 
 /**

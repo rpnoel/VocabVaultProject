@@ -25,7 +25,7 @@ public class LoginController {
         if (!(facade.login(user, pass))) {
             errorLbl.setVisible(true);
         } else {
-            App.setRoot("primary");
+            App.setRoot("home");
         }
     }
     @FXML

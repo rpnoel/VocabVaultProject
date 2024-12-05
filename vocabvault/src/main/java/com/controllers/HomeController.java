@@ -7,7 +7,12 @@ import com.vocabvault.App;
 
 public class HomeController {
     @FXML
-    private void clickBack(ActionEvent event) throws IOException {
-        App.setRoot("start");
+    private void clickRead(ActionEvent event) throws IOException {
+        App.setRoot("library");
+    }
+
+    @FXML
+    private void clickQuiz(ActionEvent event) throws IOException {
+        App.setRoot("quiz");
     }
 }
