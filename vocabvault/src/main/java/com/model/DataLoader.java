@@ -26,11 +26,7 @@ public class DataLoader extends DataConstants {
         ArrayList<User> users = new ArrayList<>();
 
         try {
-            InputStream inputStream = DataLoader.class.getResourceAsStream(DataConstants.USER_FILE_NAME);
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
-            BufferedReader reader = new BufferedReader(inputStreamReader);
-
-
+            FileReader reader = new FileReader(USER_FILE_NAME);
             JSONParser parser = new JSONParser();
             JSONArray usersJSON = (JSONArray) parser.parse(reader);
 
@@ -86,10 +82,9 @@ public class DataLoader extends DataConstants {
      */
     public static void main(String[] args) {
         ArrayList<User> users = getUsers();
-        for (User user : users) {
-            ArrayList<String> missedWords = user.getMissedW();
-                for (String word : missedWords) {
-                    System.out.println(word); 
+        if (users != null) {
+            for (User user : users) {
+                System.out.println(user.getUsername()); 
             }
         }
     }

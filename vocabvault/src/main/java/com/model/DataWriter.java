@@ -3,6 +3,8 @@ package com.model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.UUID;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -54,4 +56,14 @@ public class DataWriter extends DataConstants {
         userDetails.put(MISSED_WORDS, missedWordsArray);
         return userDetails;
     }
+
+    public static void main(String[] args) {
+        UserList userList = UserList.getInstance();
+        userList.addUser("john_doe",   "john.doe@example.com",
+            "John",
+            "Doe",
+            "password123");
+        DataWriter.saveUsers();
+    }
 }
+

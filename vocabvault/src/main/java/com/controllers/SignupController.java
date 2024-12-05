@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import com.vocabvault.App;
 import com.model.VocabVaultFACADE;
+import com.model.UserList;
 
 public class SignupController {
     @FXML
@@ -25,6 +26,7 @@ public class SignupController {
     @FXML
     private void clickSignUp(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
+        UserList newList = UserList.getInstance();
         if (facade.login(username.getText(), password.getText())) {
             this.errorLbl.setVisible(true);
         } else {
