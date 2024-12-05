@@ -18,14 +18,15 @@ public class LoginController {
 
 
     @FXML
-    private void clickLogin(ActionEvent event) throws IOException {
+    private void clickLogIn(ActionEvent event) throws IOException {
         String user = username.getText();
         String pass = password.getText();
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         if (!(facade.login(user, pass))) {
-            errorLbl.setText("Incorrect username.");
+            errorLbl.setVisible(true);
+        } else {
+            App.setRoot("primary");
         }
-        App.setRoot("home");
     }
     @FXML
     private void clickBack(ActionEvent event) throws IOException {

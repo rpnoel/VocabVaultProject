@@ -1,10 +1,13 @@
 package com.vocabvault;
 
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import com.model.UserList;
 import com.model.VocabVaultFACADE;
@@ -16,16 +19,19 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-    private static VocabVaultFACADE facade;
-    private UserList userList;
 
     @Override
     public void start(Stage stage) throws IOException {
-        facade = new VocabVaultFACADE();
-        this.userList = UserList.getInstance();
         scene = new Scene(loadFXML("start"), 640, 480);
         stage.setScene(scene);
         stage.show();
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent t) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
     }
 
     public static void setRoot(String fxml) throws IOException {
