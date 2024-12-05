@@ -1,16 +1,53 @@
-.root{
+.root {
     -fx-font-size: 16pt;
     -fx-font-family: "Helvetica";
     -fx-base: #1a1b1b;
     -fx-background: #151415;
 }
 
+/* General Button Styling */
 .button {
     -fx-background-color: #1a1b1b;
     -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-border-color: #151515;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
 }
 
-.text-field {
+.button:hover {
+    -fx-background-color: #151515;
+}
+
+/* Styling for Story Container */
+.story-container {
+    -fx-background-color: #151515; /* Slightly lighter black */
+    -fx-spacing: 20;
+    -fx-padding: 15px;
+    -fx-border-radius: 10px;
+}
+
+/* Pagination Styling */
+.story-pagination {
+    -fx-background-color: #222; /* Darker grey */
+    -fx-text-fill: white;
+    -fx-border-color: #151515; /* Visible border for pagination */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+/* Specific Button for Story Mode */
+.story-button {
     -fx-background-color: #1a1b1b;
-    -fx-text-fill: #939598;
+    -fx-text-fill: white;
+    -fx-padding: 10px 20px;
+    -fx-border-color: #151515;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.story-button:hover {
+    -fx-background-color: #151515; /* Slightly lighter when hovered */
 }
