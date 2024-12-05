@@ -16,6 +16,6 @@ public class LibraryController {
 
     @FXML
     private void clickBack(ActionEvent event) throws IOException {
-        App.setRoot("start");
+        App.setRoot("home");
     }
 }
