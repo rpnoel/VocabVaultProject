@@ -12,10 +12,9 @@ import com.model.VocabVaultFACADE;
 import com.model.BookReader;
 import com.model.Question;
 
-public class QuizController implements Initializable {
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
+public class QuizController {
+    @FXML
+    public void clickPlay(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         facade.createLevel((new BookReader("vocabvault\\txt\\goldilocksESP.txt")).getBook());
         for (int i = 0; i < 12; i++) {

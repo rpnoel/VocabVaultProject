@@ -31,6 +31,9 @@ public abstract class Question {
         return this.word;
     }
     
+    public ArrayList<String> returnChoices() {
+        return this.choices;
+    }
 
     public ArrayList<String> getChoices() {
         ArrayList<String> allChoices = generateChoices();

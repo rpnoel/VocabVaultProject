@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.VBox?>
 
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MCController">
    <children>
-      <Label fx:id="currQuestion" text="&lt;Question&gt;" />
+      <Label fx:id="questionLbl" text="&lt;Question&gt;" />
       <CheckBox fx:id="mcChoice1" mnemonicParsing="false" onAction="#checkChoice1" text="Choice 1" />
       <CheckBox fx:id="mcChoice2" mnemonicParsing="false" onAction="#checkChoice2" text="Choice 2" />
       <CheckBox fx:id="mcChoice3" mnemonicParsing="false" onAction="#checkChoice3" text="Choice 3" />
