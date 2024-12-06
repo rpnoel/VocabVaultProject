@@ -78,6 +78,9 @@ public class Matching extends Question {
         return choices;
     }
 
+    public ArrayList<String> returnChoices() {
+        return this.choices;
+    }
     /**
      * Checks if the user's answer matches the correct answer, ignoring case.
      *

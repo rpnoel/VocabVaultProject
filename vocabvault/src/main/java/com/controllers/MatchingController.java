@@ -8,7 +8,8 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import com.vocabvault.App;
 import com.model.VocabVaultFACADE;
@@ -19,15 +20,21 @@ public class MatchingController implements Initializable{
     @FXML
     Label matchQuestionLbl = new Label();
     @FXML
-    private CheckBox matchChoice1;
+    private RadioButton matchChoice1;
     @FXML
-    private CheckBox matchChoice2;
+    private RadioButton matchChoice2;
     @FXML
-    private CheckBox matchChoice3;
+    private RadioButton matchChoice3;
     @FXML
-    private CheckBox matchChoice4;
+    private RadioButton matchChoice4;
     @FXML
     private Label mcErrorLbl;
+    @FXML
+    private Label completeLbl;
+    @FXML
+    private Button okBtn;
+    @FXML
+    private Button nextBtn;
     private String userAnswer;
 
     @Override
@@ -49,36 +56,24 @@ public class MatchingController implements Initializable{
     }
 
     @FXML
-    private void checkChoice1(ActionEvent event) throws IOException {
+    private void clickChoice1(ActionEvent event) throws IOException {
         matchChoice1.setSelected(true);
         userAnswer = "1";
-        matchChoice2.setSelected(false);
-        matchChoice3.setSelected(false);
-        matchChoice4.setSelected(false);
     }
     @FXML
-    private void checkChoice2(ActionEvent event) throws IOException {
+    private void clickChoice2(ActionEvent event) throws IOException {
         matchChoice2.setSelected(true);
         userAnswer = "2";
-        matchChoice1.setSelected(false);
-        matchChoice3.setSelected(false);
-        matchChoice4.setSelected(false);
     }
     @FXML
-    private void checkChoice3(ActionEvent event) throws IOException {
+    private void clickChoice3(ActionEvent event) throws IOException {
         matchChoice3.setSelected(true);
         userAnswer = "3";
-        matchChoice1.setSelected(false);
-        matchChoice2.setSelected(false);
-        matchChoice4.setSelected(false);
     }
     @FXML
-    private void checkChoice4(ActionEvent event) throws IOException {
+    private void clickChoice4(ActionEvent event) throws IOException {
         matchChoice4.setSelected(true);
         userAnswer = "4";
-        matchChoice1.setSelected(false);
-        matchChoice2.setSelected(false);
-        matchChoice3.setSelected(false);
     }
 
     @FXML
@@ -87,10 +82,21 @@ public class MatchingController implements Initializable{
         Question currQ = facade.iterateQuestions();
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
-            App.setRoot("correctanswer");
+            facade.incQNum();
+            completeLbl.setVisible(true);
+            okBtn.setVisible(false);
+            nextBtn.setVisible(true);
         } else {
             facade.getLevel().score(false);
-            App.setRoot("wrongAnswer");
+            facade.incQNum();
+            completeLbl.setText("Incorrect. Try again!");
+            completeLbl.setVisible(true);
+            okBtn.setVisible(false);
+            nextBtn.setVisible(true);
         }
-    } 
+    }
+    @FXML
+    private void clickNext(ActionEvent event) throws IOException {
+        App.setRoot("multiplechoice");
+    }
 }

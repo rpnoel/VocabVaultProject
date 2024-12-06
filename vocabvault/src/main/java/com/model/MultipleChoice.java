@@ -40,6 +40,10 @@ public class MultipleChoice extends Question {
         choices.add(correctAnswer, word.getTranslation());
     }
 
+    public ArrayList<String> returnChoices() {
+        return this.choices;
+    }
+
     /**
      * Gets the index of the correct answer in the choices list.
      * 
@@ -67,7 +71,7 @@ public class MultipleChoice extends Question {
     @Override
     public boolean checkAnswer(String userAnswer) {
         Integer userInt = userStringToInt(userAnswer);
-        if (userInt.equals(correctAnswer + 1)) {
+        if (userInt.equals(correctAnswer)) {
             return true;
         } else {
             return false;

@@ -47,9 +47,13 @@ public class Level {
         Iterator<Word> iterator = vocabWords.iterator();
         while (iterator.hasNext()) {
             Word word = iterator.next();
-            questions.add(generateQ(word));
+            Question newQ = generateQ(word);
+            if (newQ != null) {
+                questions.add(generateQ(word));
+            }
             iterator.remove();
         }
+        qNum = 0;
     }
 
     /**
@@ -69,8 +73,10 @@ public class Level {
             return new Matching(word);
         } else if (qNum == 3 || qNum == 7 || qNum == 11) {
             return new FillInTheBlank(word);
-        } else {
+        } else if (qNum == 4 || qNum == 8 || qNum == 12) {
             return new TrueFalse(word);
+        } else {
+            return null;
         }
     }
 

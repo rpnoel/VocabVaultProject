@@ -25,10 +25,10 @@ public class QuizController {
             //fitb
             goTo("primary");
         } else if (qNum == 2 || qNum == 6 || qNum == 10) {
-            //matching
-            goTo("matching");
-        } else {
+            //MC
             goTo("multiplechoice");
+        } else {
+            goTo("matching");
         }
     }
     

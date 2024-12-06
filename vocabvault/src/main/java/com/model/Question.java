@@ -31,10 +31,6 @@ public abstract class Question {
     public Word getWord() {
         return this.word;
     }
-    
-    public ArrayList<String> returnChoices() {
-        return this.choices;
-    }
 
     public ArrayList<String> getChoices() {
         ArrayList<String> allChoices = generateChoices();
@@ -87,5 +83,6 @@ public String toString() {
 
 
     public abstract boolean checkAnswer(String userAnswer);
+    public abstract ArrayList<String> returnChoices();
 }
 

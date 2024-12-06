@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MCController">
    <children>
       <Label fx:id="questionLbl" text="&lt;Question&gt;" />
-      <CheckBox fx:id="mcChoice1" mnemonicParsing="false" onAction="#checkChoice1" text="Choice 1" />
-      <CheckBox fx:id="mcChoice2" mnemonicParsing="false" onAction="#checkChoice2" text="Choice 2" />
-      <CheckBox fx:id="mcChoice3" mnemonicParsing="false" onAction="#checkChoice3" text="Choice 3" />
-      <CheckBox fx:id="mcChoice4" mnemonicParsing="false" onAction="#checkChoice4" text="Choice 4" />
+      <RadioButton fx:id="mcChoice1" mnemonicParsing="false" onAction="#clickChoice1" text="Choice 1" />
+      <RadioButton fx:id="mcChoice2" mnemonicParsing="false" onAction="#clickChoice2" text="Choice 2" />
+      <RadioButton fx:id="mcChoice3" mnemonicParsing="false" onAction="#clickChoice3" text="Choice 3" />
+      <RadioButton fx:id="mcChoice4" mnemonicParsing="false" onAction="#clickChoice4" text="Choice 4" />
       <Label fx:id="mcErrorLbl" text="Please choose an answer!" textFill="#f70909" visible="false">
          <font>
             <Font size="10.0" />
          </font>
       </Label>
+      <Label fx:id="completeLbl" prefHeight="31.0" prefWidth="178.0" text="Correct! Great job!" visible="false" />
       <Button fx:id="OkBtn" mnemonicParsing="false" onAction="#checkAnswer" text="OK" />
    </children>
 </VBox>
