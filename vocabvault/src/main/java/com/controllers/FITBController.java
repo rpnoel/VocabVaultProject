@@ -33,14 +33,14 @@ public class FITBController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.getLevel().getQuestion(facade.getQNum());
+        Question currQ = facade.iterateQuestions();
         setQuestion(currQ);
     }
     
     @FXML
     public void setQuestion(Question q) {
         fitbQuestionLbl.setText(q.getQText());
-        
+
     }
 
     @FXML

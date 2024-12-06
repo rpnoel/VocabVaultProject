@@ -18,7 +18,7 @@ public class QuizController {
         Question currQ = facade.getLevel().getQuestion(qNum);
         if (qNum == 4 || qNum == 8 || qNum == 12) {
             //true false
-            goTo("primary");
+            goTo("truefalse");
         } else if (qNum == 3 || qNum == 7 || qNum == 11) {
             //fitb
             goTo("fitb");

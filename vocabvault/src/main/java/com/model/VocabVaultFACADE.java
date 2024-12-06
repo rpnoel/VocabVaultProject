@@ -18,6 +18,7 @@ public class VocabVaultFACADE {
     private int qNum;
     private static VocabVaultFACADE facade;
     private ArrayList<Question> questions = new ArrayList<Question>();
+    private Iterator<Question> iterator;
 
     public VocabVaultFACADE(){
         userList = UserList.getInstance();
@@ -125,8 +126,8 @@ public class VocabVaultFACADE {
         }
     } 
 
-    public Question getQuestion(Level level) {
-        return level.getQuestion(qNum);
+    public Question getQuestion() {
+        return this.level.getQuestion(qNum);
     }
 
     public int getQNum() {
@@ -139,7 +140,9 @@ public class VocabVaultFACADE {
     }
 
     public Question iterateQuestions() {
-        Iterator<Question> iterator = level.getAllQuestions().iterator();
+        if (iterator == null) {
+            iterator = level.getAllQuestions().iterator();
+        }
         while (iterator.hasNext()) {
             Question currQ = iterator.next();
             iterator.remove();

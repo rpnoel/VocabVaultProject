@@ -39,7 +39,7 @@ public class MatchingController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.getLevel().getQuestion(facade.getQNum());
+        Question currQ = facade.iterateQuestions();
         setQuestion(currQ);
     }
 

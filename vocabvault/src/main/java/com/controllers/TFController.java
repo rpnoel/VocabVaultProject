@@ -56,7 +56,7 @@ public class TFController implements Initializable {
     @FXML
     private void checkAnswer(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.getLevel().getQuestion(facade.getQNum());
+        Question currQ = facade.iterateQuestions();
     
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
