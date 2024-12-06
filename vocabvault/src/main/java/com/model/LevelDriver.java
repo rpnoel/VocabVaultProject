@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class LevelDriver {
     public static void main(String[] args) {
-        BookReader reader = new BookReader("VocabVault\\txt\\goldilocksESP.txt");
+        BookReader reader = new BookReader("vocabvault\\txt\\goldilocksESP.txt");
         Scanner scan = new Scanner(System.in);
         Level level = new Level(1, reader.getBook());
         for (int i = 0; i < 12; i++) {
@@ -33,6 +33,6 @@ public class LevelDriver {
                 level.score(corr);
             }
         }
-        System.out.println("Your score: " + level.getScore() + " / " + level.getQNum());
+        System.out.println("Your score: " + level.getScore() + " / " + level.getGenNum());
     }
 }

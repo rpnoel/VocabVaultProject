@@ -63,7 +63,7 @@ public abstract class Question {
     private ArrayList<String> generateChoices() {
         ArrayList<String> choices = new ArrayList<String>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoices.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("vocabvault\\txt\\answerChoices.txt"));
             String line = reader.readLine();
             while (line != null && choices.size() < 50) {
                 choices.add(line);
