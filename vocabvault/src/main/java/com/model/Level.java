@@ -11,7 +11,7 @@ public class Level {
     /**
      * The list of questions in this level.
      */
-    private ArrayList<Question> questions;
+    private ArrayList<Question> questions = new ArrayList<>();
     private int score = 0;
     /**
      * The level number for this level.
@@ -32,7 +32,6 @@ public class Level {
      */
     public Level(int levelNum, Book sourceBook) {
         this.levelNum = levelNum;
-        this.questions = new ArrayList<>();
         populateQ(sourceBook);
     }
 
@@ -48,8 +47,9 @@ public class Level {
         while (iterator.hasNext()) {
             Word word = iterator.next();
             Question newQ = generateQ(word);
-            if (newQ != null) {
-                questions.add(generateQ(word));
+            questions.add(newQ);
+            while (newQ == null) {
+                questions.add(newQ);
             }
             iterator.remove();
         }
@@ -69,9 +69,9 @@ public class Level {
         genNum++;
         System.out.println(genNum);
         if (genNum == 1 || genNum == 5 || genNum == 9) {
-            return new Matching(word);
-        } else if (genNum == 2 || genNum == 6 || genNum == 10) {
             return new MultipleChoice(word);
+        } else if (genNum == 2 || genNum == 6 || genNum == 10) {
+            return new Matching(word);
         } else if (genNum == 3 || genNum == 7 || genNum == 11) {
             return new FillInTheBlank(word);
         } else if (genNum == 4 || genNum == 8 || genNum == 12) {

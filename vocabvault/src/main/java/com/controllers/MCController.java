@@ -43,6 +43,7 @@ public class MCController implements Initializable{
         Question currQ = facade.getLevel().getQuestion(facade.getQNum());
         setQuestion(currQ);
         completeLbl.setVisible(false);
+        okBtn.setVisible(true);
     }
 
     @FXML
@@ -95,11 +96,12 @@ public class MCController implements Initializable{
             okBtn.setVisible(false);
             nextBtn.setVisible(true);
         }
+        facade.incQNum();
     } 
 
     @FXML
     private void clickNext(ActionEvent event) throws IOException {
-        App.setRoot("multiplechoice");
+        App.setRoot("matching");
     }
 
     public static void main(String[] args) {

@@ -40,7 +40,6 @@ public class Matching extends Question {
         choices.add(correctAnswer, word.getWordText()); 
     }
 
-    @Override
     public ArrayList<String> getChoices() {
         ArrayList<String> allChoices = this.generateChoices();
         allChoices.remove(this.getWordText());
@@ -77,7 +76,7 @@ public class Matching extends Question {
         
         return choices;
     }
-
+    @Override
     public ArrayList<String> returnChoices() {
         return this.choices;
     }

@@ -63,5 +63,8 @@ public class FITBController implements Initializable {
         }
     }
 
-
+    @FXML
+    private void clickNext(ActionEvent event) throws IOException {
+        App.setRoot("primary");
+    }
 }

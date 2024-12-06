@@ -42,7 +42,7 @@ public class MultipleChoice extends Question {
         this.choices = this.generateChoices();
         choices.add(correctAnswer, word.getTranslation());
     }
-
+     @Override
     public ArrayList<String> returnChoices() {
         return this.choices;
     }

@@ -19,7 +19,7 @@
          </font>
       </Label>
       <Label fx:id="completeLbl" prefHeight="31.0" prefWidth="178.0" text="Correct! Great job!" visible="false" />
-      <Button fx:id="OkBtn" mnemonicParsing="false" onAction="#checkAnswer" text="OK" />
+      <Button fx:id="okBtn" mnemonicParsing="false" onAction="#checkAnswer" text="OK" />
       <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#clickNext" text="Next question" visible="false" />
    </children>
 </VBox>

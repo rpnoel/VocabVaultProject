@@ -15,6 +15,7 @@ public class QuizController {
     public void clickPlay(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         qNum = facade.getQNum();
+        Question currQ = facade.getLevel().getQuestion(qNum);
         qNum++;
         if (qNum == 4 || qNum == 8 || qNum == 12) {
             //true false
@@ -24,9 +25,10 @@ public class QuizController {
             goTo("fitb");
         } else if (qNum == 2 || qNum == 6 || qNum == 10) {
             //MC
-            goTo("multiplechoice");
-        } else {
             goTo("matching");
+        
+        } else {
+            goTo("multiplechoice");
         }
     }
     

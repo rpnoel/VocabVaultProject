@@ -111,7 +111,7 @@ public class VocabVaultFACADE {
         level = new Level(1, book);
         for (int i = 0; i < 12; i++) {
             if (i == 3 || i == 7 || i == 11) {
-                //true false
+                questions.add(level.getQuestion( qNum));
             } else if (i == 2 || i == 6 || i == 10) {
                 questions.add(level.getQuestion( qNum));
             } else if (i == 1 || i == 5|| i == 9) {
@@ -119,6 +119,9 @@ public class VocabVaultFACADE {
             } else {
                 questions.add(level.getQuestion(qNum));
             }
+        }
+        for (Question q : level.getAllQuestions()) {
+            System.out.println(q.toString());
         }
     } 
 
