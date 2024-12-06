@@ -63,7 +63,7 @@ public class Matching extends Question {
     private ArrayList<String> generateChoices() {
         HashSet<String> uniqueChoices = new HashSet<>(); 
         ArrayList<String> choices = new ArrayList<>(); 
-        try (BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoicesESP.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("vocabvault\\txt\\answerChoicesESP.txt"))) {
             String line;
             while ((line = reader.readLine()) != null && uniqueChoices.size() < 50) { 
                 uniqueChoices.add(line); 

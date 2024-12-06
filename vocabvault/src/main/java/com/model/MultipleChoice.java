@@ -50,7 +50,7 @@ public class MultipleChoice extends Question {
     private ArrayList<String> generateChoices() {
         HashSet<String> uniqueChoices = new HashSet<>(); 
         ArrayList<String> choices = new ArrayList<>(); 
-        try (BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoices.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("vocabvault\\txt\\answerChoices.txt"))) {
             String line;
             while ((line = reader.readLine()) != null && uniqueChoices.size() < 50) { 
                 uniqueChoices.add(line); 
