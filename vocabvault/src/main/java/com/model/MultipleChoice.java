@@ -1,6 +1,9 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.lang.Integer;
 
 /**
@@ -36,12 +39,30 @@ public class MultipleChoice extends Question {
     public MultipleChoice(Word word) {
         this.questionText = "Choose the correct translation of " + word.getWordText() + ".";
         this.correctAnswer = (int) (Math.random() * 3) + 1;
-        this.choices = getChoices();
+        this.choices = this.generateChoices();
         choices.add(correctAnswer, word.getTranslation());
     }
 
     public ArrayList<String> returnChoices() {
         return this.choices;
+    }
+
+    private ArrayList<String> generateChoices() {
+        HashSet<String> uniqueChoices = new HashSet<>(); 
+        ArrayList<String> choices = new ArrayList<>(); 
+        try (BufferedReader reader = new BufferedReader(new FileReader("VocabVault\\txt\\answerChoices.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null && uniqueChoices.size() < 50) { 
+                uniqueChoices.add(line); 
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    
+        choices.addAll(uniqueChoices);
+        
+        return choices;
     }
 
     /**

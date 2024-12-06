@@ -14,11 +14,10 @@ import javafx.scene.control.Label;
 import com.vocabvault.App;
 import com.model.VocabVaultFACADE;
 import com.model.Question;
-import com.model.MultipleChoice;
 
 public class MatchingController implements Initializable{
     @FXML
-    Label matchQuestionLbl = new Label();
+    private Label matchQuestionLbl = new Label();
     @FXML
     private RadioButton matchChoice1;
     @FXML
@@ -40,7 +39,7 @@ public class MatchingController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.getLevel().getQuestion(1);
+        Question currQ = facade.getLevel().getQuestion(facade.getQNum());
         setQuestion(currQ);
     }
 

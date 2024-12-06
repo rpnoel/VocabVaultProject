@@ -15,15 +15,13 @@ public class QuizController {
     public void clickPlay(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         qNum = facade.getQNum();
-        if (qNum == 0) {
-            facade.createLevel((new BookReader("vocabvault\\txt\\goldilocksESP.txt")).getBook());
-        }
+        qNum++;
         if (qNum == 4 || qNum == 8 || qNum == 12) {
             //true false
             goTo("primary");
         } else if (qNum == 3 || qNum == 7 || qNum == 11) {
             //fitb
-            goTo("primary");
+            goTo("fitb");
         } else if (qNum == 2 || qNum == 6 || qNum == 10) {
             //MC
             goTo("multiplechoice");

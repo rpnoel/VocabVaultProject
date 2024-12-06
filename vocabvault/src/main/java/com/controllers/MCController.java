@@ -33,17 +33,16 @@ public class MCController implements Initializable{
     private Label completeLbl;
     @FXML
     private Button okBtn;
+    @FXML
+    private Button nextBtn;
     private String userAnswer;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.iterateQuestions();
+        Question currQ = facade.getLevel().getQuestion(facade.getQNum());
         setQuestion(currQ);
         completeLbl.setVisible(false);
-        if (facade.getQNum() != 0) {
-            facade.incQNum();
-        }
     }
 
     @FXML
@@ -86,13 +85,22 @@ public class MCController implements Initializable{
             facade.getLevel().score(true);
             facade.incQNum();
             completeLbl.setVisible(true);
+            okBtn.setVisible(false);
+            nextBtn.setVisible(true);
         } else {
             facade.getLevel().score(false);
             facade.incQNum();
             completeLbl.setText("Incorrect. Try again!");
             completeLbl.setVisible(true);
+            okBtn.setVisible(false);
+            nextBtn.setVisible(true);
         }
     } 
+
+    @FXML
+    private void clickNext(ActionEvent event) throws IOException {
+        App.setRoot("multiplechoice");
+    }
 
     public static void main(String[] args) {
    

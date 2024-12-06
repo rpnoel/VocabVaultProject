@@ -21,7 +21,7 @@ public class Level {
     /**
      * The number of questions generated for this level.
      */
-    private int qNum = 0;
+    private int genNum = 0;
 
     /**
      * Constructs a Level with the specified level number and a source book.
@@ -53,7 +53,7 @@ public class Level {
             }
             iterator.remove();
         }
-        qNum = 0;
+        genNum = 0;
     }
 
     /**
@@ -66,14 +66,15 @@ public class Level {
      * @return the generated question
      */
     private Question generateQ(Word word) {
-        qNum++;
-        if (qNum == 1 || qNum == 5 || qNum == 9) {
-            return new MultipleChoice(word);
-        } else if (qNum == 2 || qNum == 6 || qNum == 10) {
+        genNum++;
+        System.out.println(genNum);
+        if (genNum == 1 || genNum == 5 || genNum == 9) {
             return new Matching(word);
-        } else if (qNum == 3 || qNum == 7 || qNum == 11) {
+        } else if (genNum == 2 || genNum == 6 || genNum == 10) {
+            return new MultipleChoice(word);
+        } else if (genNum == 3 || genNum == 7 || genNum == 11) {
             return new FillInTheBlank(word);
-        } else if (qNum == 4 || qNum == 8 || qNum == 12) {
+        } else if (genNum == 4 || genNum == 8 || genNum == 12) {
             return new TrueFalse(word);
         } else {
             return null;
@@ -95,21 +96,8 @@ public class Level {
      * @param questionType the type of question to retrieve (1 - Multiple Choice, 2 - Matching, 3 - Fill in the Blank, 4 - True or False)
      * @return the question of the specified type, or the first question if type is unknown
      */
-    public Question getQuestion(int questionType) {
-        // 1 - multiple choice, 2 - matching, 3 - fill in the blank, 4 - true or false
-        if (questionType == 1) {
-            return questions.get(qNum);
-        } else if (questionType == 2) {
-            return questions.get(qNum);
-        } else if (questionType == 3) {
-            Question temp = questions.get(2);
-            questions.remove(temp);
-            return temp;
-        } else {
-            Question temp = questions.get(3);
-            questions.remove(temp);
-            return temp;
-        }
+    public Question getQuestion(int qNum) {
+        return questions.get(qNum);
     }
 
     public void score(Boolean bool) {
@@ -125,8 +113,8 @@ public class Level {
         return this.score;
     }
 
-    public int getQNum() {
-        return this.qNum;
+    public int getGenNum() {
+        return this.genNum;
     }
 
     /**

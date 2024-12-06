@@ -36,6 +36,10 @@ public class TrueFalse extends Question {
             this.correctAnswer = false;
         }
     }
+    
+    public ArrayList<String> returnChoices() {
+        return null;
+    }
 
     public boolean checkAnswer(String userAnswer) {
         if (userAnswer != null) {

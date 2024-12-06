@@ -1,6 +1,7 @@
 package com.model;
 
 import java.text.Normalizer;
+import java.util.ArrayList;
 /**
  * Represents a fill-in-the-blank question where the user provides an answer
  * based on a given word's translation.
@@ -39,6 +40,10 @@ public class FillInTheBlank extends Question {
     public FillInTheBlank(Question q) {
         this.questionText = q.getQText();
         this.correctAnswer = q.getWord().getTranslation();
+    }
+
+    public ArrayList<String> returnChoices() {
+        return null;
     }
 
     /**

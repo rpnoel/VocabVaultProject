@@ -22,6 +22,7 @@ public class VocabVaultFACADE {
     public VocabVaultFACADE(){
         userList = UserList.getInstance();
         createLevel(new BookReader("vocabvault\\txt\\goldilocksESP.txt").getBook());
+        qNum = 0;
     }
 
     public static VocabVaultFACADE getInstance() {
@@ -112,17 +113,17 @@ public class VocabVaultFACADE {
             if (i == 3 || i == 7 || i == 11) {
                 //true false
             } else if (i == 2 || i == 6 || i == 10) {
-                //fitb
+                questions.add(level.getQuestion( qNum));
             } else if (i == 1 || i == 5|| i == 9) {
-                questions.add(level.getQuestion(2));
+                questions.add(level.getQuestion(qNum));
             } else {
-                questions.add(level.getQuestion(1));
+                questions.add(level.getQuestion(qNum));
             }
         }
     } 
 
-    public Question getQuestion(Level level, int questionType) {
-        return level.getQuestion(questionType);
+    public Question getQuestion(Level level) {
+        return level.getQuestion(qNum);
     }
 
     public int getQNum() {
@@ -164,7 +165,7 @@ public class VocabVaultFACADE {
 
     while (qComplete < trackQuestions) {
         int qType = rand.nextInt(4) + 1; 
-        Question currQ = level.getQuestion(qType); 
+        Question currQ = level.getQuestion(qNum); 
         
         System.out.println(currQ.toString());
         Narriator.playSound(currQ.toString());
