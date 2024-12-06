@@ -98,13 +98,9 @@ public class Level {
     public Question getQuestion(int questionType) {
         // 1 - multiple choice, 2 - matching, 3 - fill in the blank, 4 - true or false
         if (questionType == 1) {
-            Question temp = questions.get(0);
-            questions.remove(temp);
-            return temp;
+            return questions.get(qNum);
         } else if (questionType == 2) {
-            Question temp = questions.get(1);
-            questions.remove(temp);
-            return temp;
+            return questions.get(qNum);
         } else if (questionType == 3) {
             Question temp = questions.get(2);
             questions.remove(temp);
