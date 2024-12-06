@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import com.vocabvault.App;
 import com.model.VocabVaultFACADE;
 import com.model.UserList;
@@ -13,7 +14,7 @@ public class SignupController {
     @FXML
     private TextField firstName;
     @FXML
-    private TextField lastName;
+    private PasswordField lastName;
     @FXML
     private TextField email;
     @FXML

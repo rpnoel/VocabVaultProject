@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import javafx.fxml.FXML;
 
 import com.narraration.Narriator;
 
@@ -15,6 +16,7 @@ public class VocabVaultFACADE {
     private UserList userList;
     private User currentUser;
     private UserProgressTracker usrProg;
+    private Level level;
     private static VocabVaultFACADE facade;
 
     public VocabVaultFACADE(){
@@ -103,7 +105,29 @@ public class VocabVaultFACADE {
         }
     }
 
+    public void createLevel(Book book) {
+        level = new Level(1, book);
+        for (int i = 0; i < 12; i++) {
+            if (i == 3 || i == 7 || i == 11) {
+                //true false
+            } else if (i == 2 || i == 6 || i == 10) {
+                //fitb
+            } else if (i == 1 || i == 5|| i == 9) {
+                //matching
+            } else {
+                Question currQ = level.getQuestion(1);
+                getQuestion(level, 1);
+            }
+        }
+    } 
 
+    public Question getQuestion(Level level, int questionType) {
+        return level.getQuestion(questionType);
+    }
+
+    public Level getLevel() {
+        return this.level;
+    }
 
     public void play() {
     if (currentUser == null) {

@@ -3,6 +3,7 @@ package com.controllers;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import com.vocabvault.App;
@@ -12,7 +13,7 @@ public class LoginController {
     @FXML
     private TextField username;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private Label errorLbl = new Label();
 
