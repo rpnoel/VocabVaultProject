@@ -4,16 +4,9 @@
 <?import javafx.scene.control.Pagination?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css"
-      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.controllers.GoldilocksController" styleClass="story-container">
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" styleClass="story-container" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.GoldilocksController">
    <children>
-      <Pagination fx:id="goldilocksPgn" pageCount="27" prefHeight="370.0" prefWidth="600.0"
-                  styleClass="story-pagination" />
-      <Button fx:id="backBtn" mnemonicParsing="false" onAction="#clickBack" text="Back"
-              styleClass="story-button" />
+      <Pagination fx:id="goldilocksPgn" pageCount="27" prefHeight="370.0" prefWidth="600.0" styleClass="story-pagination" />
+      <Button fx:id="backBtn" mnemonicParsing="false" onAction="#clickBack" styleClass="story-button" text="Back" />
    </children>
 </VBox>
-
-

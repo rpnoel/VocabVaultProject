@@ -1,13 +1,10 @@
 package com.model;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
-import javafx.fxml.FXML;
+import java.util.Iterator;
 
 import com.narraration.Narriator;
 
@@ -17,10 +14,13 @@ public class VocabVaultFACADE {
     private User currentUser;
     private UserProgressTracker usrProg;
     private Level level;
+    private Question currQ;
+    private int qNum;
     private static VocabVaultFACADE facade;
 
     public VocabVaultFACADE(){
         userList = UserList.getInstance();
+        createLevel(new BookReader("vocabvault\\txt\\goldilocksESP.txt").getBook());
     }
 
     public static VocabVaultFACADE getInstance() {
@@ -113,7 +113,7 @@ public class VocabVaultFACADE {
             } else if (i == 2 || i == 6 || i == 10) {
                 //fitb
             } else if (i == 1 || i == 5|| i == 9) {
-                //matching
+                getQuestion(level, 2);
             } else {
                 Question currQ = level.getQuestion(1);
                 getQuestion(level, 1);
@@ -123,6 +123,26 @@ public class VocabVaultFACADE {
 
     public Question getQuestion(Level level, int questionType) {
         return level.getQuestion(questionType);
+    }
+
+    public int getQNum() {
+        return this.qNum;
+    }
+
+    public void incQNum() {
+        //increase qnum by 1
+        this.qNum = qNum + 1;
+    }
+
+    public Question iterateQuestions() {
+        Iterator<Question> iterator = level.getAllQuestions().iterator();
+        while (iterator.hasNext()) {
+            Question currQ = iterator.next();
+            iterator.remove();
+            qNum++;
+            return currQ;
+        }
+        return null;
     }
 
     public Level getLevel() {

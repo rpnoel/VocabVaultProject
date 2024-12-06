@@ -24,7 +24,7 @@ public class FillInTheBlank extends Question {
      * The answer provided by the user.
      */
     public String userAnswer;
-
+    private final int qType = 3;
     /**
      * Constructs a FillInTheBlank question based on the provided word.
      * Sets the question text and the correct answer.

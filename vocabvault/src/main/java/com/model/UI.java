@@ -36,7 +36,7 @@ public class UI {
     }
 
     /**
-     * Handles the login scenario, prompting the user for username and password
+     * Handles the login scenario, prompting the user 2for username and password
      * and verifying credentials with the facade.
      */
     public void loginScenario() {

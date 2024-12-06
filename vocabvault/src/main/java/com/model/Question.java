@@ -17,6 +17,7 @@ public abstract class Question {
     private String questionText;
     private Word word;
     private ArrayList<String> choices;
+    private int qType;
 
     /**
      * Gets the text of the question.
@@ -51,6 +52,10 @@ public abstract class Question {
         }
 
         return choices;
+    }
+
+    public int getQType() {
+        return this.qType;
     }
 
     /**

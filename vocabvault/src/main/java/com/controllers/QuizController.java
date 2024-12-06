@@ -1,10 +1,6 @@
 package com.controllers;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.vocabvault.App;
@@ -13,20 +9,26 @@ import com.model.BookReader;
 import com.model.Question;
 
 public class QuizController {
+    private int qNum;
+
     @FXML
     public void clickPlay(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        facade.createLevel((new BookReader("vocabvault\\txt\\goldilocksESP.txt")).getBook());
-        for (int i = 0; i < 12; i++) {
-            if (i == 3 || i == 7 || i == 11) {
-                //true false
-            } else if (i == 2 || i == 6 || i == 10) {
-                //fitb
-            } else if (i == 1 || i == 5|| i == 9) {
-                //matching
-            } else {
-                goTo("multiplechoice");
-            }
+        qNum = facade.getQNum();
+        if (qNum == 0) {
+            facade.createLevel((new BookReader("vocabvault\\txt\\goldilocksESP.txt")).getBook());
+        }
+        if (qNum == 4 || qNum == 8 || qNum == 12) {
+            //true false
+            goTo("primary");
+        } else if (qNum == 3 || qNum == 7 || qNum == 11) {
+            //fitb
+            goTo("primary");
+        } else if (qNum == 2 || qNum == 6 || qNum == 10) {
+            //matching
+            goTo("matching");
+        } else {
+            goTo("multiplechoice");
         }
     }
     

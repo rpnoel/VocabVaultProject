@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.MatchingController">
+   <children>
+      <Label fx:id="matchQuestionLbl" text="&lt;Question&gt;" />
+      <CheckBox fx:id="matchChoice1" mnemonicParsing="false" onAction="#checkChoice1" text="CheckBox" />
+      <CheckBox fx:id="matchChoice2" mnemonicParsing="false" onAction="#checkChoice2" text="CheckBox" />
+      <CheckBox fx:id="matchChoice3" mnemonicParsing="false" onAction="#checkChoice3" text="CheckBox" />
+      <CheckBox fx:id="matchChoice4" mnemonicParsing="false" onAction="#checkChoice4" text="CheckBox" />
+      <Label fx:id="mcErrorLbl" text="Please choose an answer!" textFill="#f70909" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <Button fx:id="OkBtn" mnemonicParsing="false" onAction="#checkAnswer" text="OK" />
+   </children>
+</VBox>

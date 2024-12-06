@@ -26,13 +26,18 @@ public class MCController implements Initializable{
     private CheckBox mcChoice3;
     @FXML
     private CheckBox mcChoice4;
-    private int corrAnswer;
+    @FXML
+    private Label mcErrorLbl;
+    private String userAnswer;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.getQuestion(facade.getLevel(), 1);
+        Question currQ = facade.getLevel().getQuestion(1);
         setQuestion(currQ);
+        if (facade.getQNum() != 0) {
+            facade.incQNum();
+        }
     }
 
     @FXML
@@ -49,32 +54,74 @@ public class MCController implements Initializable{
     @FXML
     private void checkChoice1(ActionEvent event) throws IOException {
         mcChoice1.setSelected(true);
-        corrAnswer = 0;
+        userAnswer = "1";
+        mcChoice2.setSelected(false);
+        mcChoice3.setSelected(false);
+        mcChoice4.setSelected(false);
     }
     @FXML
     private void checkChoice2(ActionEvent event) throws IOException {
         mcChoice2.setSelected(true);
-        corrAnswer = 1;
+        userAnswer = "2";
+        mcChoice1.setSelected(false);
+        mcChoice3.setSelected(false);
+        mcChoice4.setSelected(false);
     }
     @FXML
     private void checkChoice3(ActionEvent event) throws IOException {
         mcChoice3.setSelected(true);
-        corrAnswer = 2;
+        userAnswer = "3";
+        mcChoice1.setSelected(false);
+        mcChoice2.setSelected(false);
+        mcChoice4.setSelected(false);
     }
     @FXML
     private void checkChoice4(ActionEvent event) throws IOException {
         mcChoice4.setSelected(true);
-        corrAnswer = 3;
+        userAnswer = "4";
+        mcChoice1.setSelected(false);
+        mcChoice2.setSelected(false);
+        mcChoice3.setSelected(false);
     }
+
+    private void setUserAnswer() {
+        if (mcChoice1.isSelected()) {
+            userAnswer = "01";
+        } else if (mcChoice2.isSelected()) {
+            userAnswer = "02";
+        } else if (mcChoice3.isSelected()) {
+            userAnswer = "03";
+        } else if (mcChoice4.isSelected()) {
+            userAnswer = "04";
+        } else {
+            mcErrorLbl.setVisible(true);
+            setUserAnswer();
+        }
+    }
+
     @FXML
     private void checkAnswer(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.getLevel().getQuestion(1);
-        if (currQ.checkAnswer(Integer.toString(corrAnswer))) {
+        Question currQ = facade.iterateQuestions();
+        setUserAnswer();
+        if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
+            facade.incQNum();
             App.setRoot("correctanswer");
         } else {
-            //App.setRoot("wrongAnswer");
+            facade.getLevel().score(false);
+            facade.incQNum();
+            App.setRoot("wrongAnswer");
         }
     } 
+
+    public static void main(String[] args) {
+        VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
+        Question currQ = facade.getLevel().getQuestion(1);
+        ArrayList<String> choices = new ArrayList<String>();
+        choices = currQ.returnChoices();
+        for (String s : choices) {
+            System.out.println(s);
+        }
+    }
 }

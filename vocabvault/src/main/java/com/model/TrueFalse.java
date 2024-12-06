@@ -18,7 +18,7 @@ public class TrueFalse extends Question {
      * The correct answer for the question (true or false).
      */
     private boolean correctAnswer;
-
+    private final int qType = 4;
     /**
      * Constructs a TrueFalse question with the specified correct answer.
      *
@@ -38,17 +38,21 @@ public class TrueFalse extends Question {
     }
 
     public boolean checkAnswer(String userAnswer) {
-        boolean userBool;
-        if (userAnswer.equalsIgnoreCase("true") || userAnswer.equalsIgnoreCase("t")) {
-            userBool = true;
-        } else if (userAnswer.equalsIgnoreCase("false") || userAnswer.equalsIgnoreCase("f")) {
-            userBool = false;
-        } else {
-            System.out.println("Incorrect answer format. Wrong!");
-            return false;
-        }
-        if (userBool == this.correctAnswer) {
-            return true;
+        if (userAnswer != null) {
+            boolean userBool;
+            if (userAnswer.equalsIgnoreCase("true") || userAnswer.equalsIgnoreCase("t")) {
+                userBool = true;
+            } else if (userAnswer.equalsIgnoreCase("false") || userAnswer.equalsIgnoreCase("f")) {
+                userBool = false;
+            } else {
+                System.out.println("Incorrect answer format. Wrong!");
+                return false;
+            }
+            if (userBool == this.correctAnswer) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return false;
         }

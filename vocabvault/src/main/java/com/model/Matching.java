@@ -24,6 +24,7 @@ public class Matching extends Question {
     private int correctAnswer;
     private ArrayList<String> choices;
     private String wordText;
+    private final int qType = 2;
 
     /**
      * Constructs a Matching question with the specified word and correct answer.

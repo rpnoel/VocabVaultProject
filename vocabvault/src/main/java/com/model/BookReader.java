@@ -36,6 +36,7 @@ public class BookReader {
                 }
             }
             title = reader.readLine();
+            reader.readLine(); //skip empty line
             String line2 = reader.readLine();
             while ((line2 = reader.readLine()) != null) {
                 bodyText.append(line2).append("\n");

@@ -1,6 +1,7 @@
 package com.model;
 
 import java.util.ArrayList;
+import java.lang.Integer;
 
 /**
  * Represents a multiple-choice question where the user selects the correct translation
@@ -23,7 +24,8 @@ public class MultipleChoice extends Question {
     /**
      * The index of the correct answer in the choices list (1-4).
      */
-    private int correctAnswer;
+    private Integer correctAnswer;
+    private final int qType = 1;
 
     /**
      * Constructs a MultipleChoice question for the specified word. Sets the question text,
@@ -62,20 +64,24 @@ public class MultipleChoice extends Question {
      * @param userAnswer the index of the answer chosen by the user
      * @return true if the user's answer matches the correct answer, false otherwise
      */
+    @Override
     public boolean checkAnswer(String userAnswer) {
-        try {
-            int userInt = Integer.parseInt(userAnswer);
-            userInt = userInt - 1;
-            if (userInt < 5 || userInt > 0) {
-                if (userInt == this.correctAnswer) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (NumberFormatException e) {
+        Integer userInt = userStringToInt(userAnswer);
+        if (userInt.equals(correctAnswer + 1)) {
+            return true;
+        } else {
             return false;
         }
     }
+
+    private static Integer userStringToInt(String userString) {
+        try {
+            Integer userInt = Integer.parseInt(userString);
+            return userInt;
+        } catch (Exception e) {
+            return -1;
+        }
+    } 
 
     /**
      * Returns a string representation of the multiple-choice question and its answer choices.
@@ -85,5 +91,13 @@ public class MultipleChoice extends Question {
     @Override
     public String toString() {
         return questionText + "\n\t1. " + choices.get(0) + "\n\t2. " + choices.get(1) + "\n\t3. " + choices.get(2) + "\n\t4. " + choices.get(3) + "\n";
+    }
+    @Override
+    public String getQText() {
+        return this.questionText;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(userStringToInt("1"));
     }
 }

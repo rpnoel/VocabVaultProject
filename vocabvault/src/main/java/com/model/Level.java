@@ -104,7 +104,7 @@ public class Level {
             questions.remove(temp);
             return temp;
         } else {
-            Question temp = questions.get(4);
+            Question temp = questions.get(3);
             questions.remove(temp);
             return temp;
         }
