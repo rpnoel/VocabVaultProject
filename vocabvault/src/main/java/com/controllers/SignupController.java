@@ -14,13 +14,13 @@ public class SignupController {
     @FXML
     private TextField firstName;
     @FXML
-    private PasswordField lastName;
+    private TextField lastName;
     @FXML
     private TextField email;
     @FXML
     private TextField username;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
     private Label errorLbl = new Label();
    

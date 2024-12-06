@@ -17,7 +17,7 @@ public class VocabVaultFACADE {
     private Question currQ;
     private int qNum;
     private static VocabVaultFACADE facade;
-    private ArrayList<Question> mcQs = new ArrayList<Question>();
+    private ArrayList<Question> questions = new ArrayList<Question>();
 
     public VocabVaultFACADE(){
         userList = UserList.getInstance();
@@ -114,9 +114,9 @@ public class VocabVaultFACADE {
             } else if (i == 2 || i == 6 || i == 10) {
                 //fitb
             } else if (i == 1 || i == 5|| i == 9) {
-                mcQs.add(level.getQuestion(2));
+                questions.add(level.getQuestion(2));
             } else {
-                //matching
+                questions.add(level.getQuestion(1));
             }
         }
     } 
