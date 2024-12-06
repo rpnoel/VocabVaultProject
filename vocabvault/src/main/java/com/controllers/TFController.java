@@ -15,17 +15,15 @@ import com.vocabvault.App;
 import com.model.Question;
 import com.model.VocabVaultFACADE;
 
-public class FITBController implements Initializable {
+public class TFController implements Initializable {
     @FXML
-    private Label fitbQuestionLbl = new Label();
-    @FXML
-    private TextField blank;
-    @FXML
-    private Label mcErrorLbl;
+    private Label tfQuestionLbl = new Label();
     @FXML
     private Label completeLbl;
     @FXML
-    private Button okBtn;
+    private Button trueBtn;
+    @FXML
+    private Button falseBtn;
     @FXML
     private Button nextBtn;
     private String userAnswer;
@@ -39,33 +37,44 @@ public class FITBController implements Initializable {
     
     @FXML
     public void setQuestion(Question q) {
-        fitbQuestionLbl.setText(q.getQText());
-        
+        tfQuestionLbl.setText(q.getQText());
+        if (q.checkAnswer("true")) {
+
+        }
+    }
+
+    @FXML
+    private void clickTrue(ActionEvent event) {
+        this.userAnswer = "true";
+    }
+
+    @FXML
+    private void clickFalse(ActionEvent event) {
+        this.userAnswer = "false";
     }
 
     @FXML
     private void checkAnswer(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         Question currQ = facade.getLevel().getQuestion(facade.getQNum());
-        userAnswer = blank.getText();
+    
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
             facade.incQNum();
+            completeLbl.setText("Correct! Great job!");
             completeLbl.setVisible(true);
-            okBtn.setVisible(false);
             nextBtn.setVisible(true);
         } else {
             facade.getLevel().score(false);
             facade.incQNum();
             completeLbl.setText("Incorrect. Try again!");
             completeLbl.setVisible(true);
-            okBtn.setVisible(false);
             nextBtn.setVisible(true);
         }
     }
 
     @FXML
     private void clickNext(ActionEvent event) throws IOException {
-        App.setRoot("truefalse");
+        App.setRoot("primary");
     }
 }

@@ -62,6 +62,10 @@ public class TrueFalse extends Question {
         }
     }
 
+    public boolean getCorrectAnswer() {
+        return this.correctAnswer;
+    }
+
     /**
      * Gets the text of the true-or-false question.
      *

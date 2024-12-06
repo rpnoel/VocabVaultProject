@@ -9,7 +9,7 @@
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.FITBController">
    <children>
       <Label fx:id="fitbQuestionLbl" text="Question" />
-      <TextField prefHeight="46.0" prefWidth="394.0" promptText="Enter your answer" />
+      <TextField fx:id="blank" prefHeight="46.0" prefWidth="394.0" promptText="Enter your answer" />
       <Label fx:id="fitbErrorLbl" text="Please enter an answer!" textFill="#f70909" visible="false">
          <font>
             <Font size="10.0" />
@@ -17,6 +17,6 @@
       </Label>
       <Label fx:id="completeLbl" prefHeight="31.0" prefWidth="178.0" text="Correct! Great job!" visible="false" />
       <Button fx:id="okBtn" mnemonicParsing="false" onAction="#checkAnswer" text="OK" />
-      <Button fx:id="nextbtn" mnemonicParsing="false" onAction="#clickNext" text="Next question" visible="false" />
+      <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#clickNext" text="Next question" visible="false" />
    </children>
 </VBox>

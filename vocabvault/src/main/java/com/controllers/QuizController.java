@@ -16,7 +16,6 @@ public class QuizController {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         qNum = facade.getQNum();
         Question currQ = facade.getLevel().getQuestion(qNum);
-        qNum++;
         if (qNum == 4 || qNum == 8 || qNum == 12) {
             //true false
             goTo("primary");

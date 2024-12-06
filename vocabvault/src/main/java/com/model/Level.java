@@ -67,7 +67,6 @@ public class Level {
      */
     private Question generateQ(Word word) {
         genNum++;
-        System.out.println(genNum);
         if (genNum == 1 || genNum == 5 || genNum == 9) {
             return new MultipleChoice(word);
         } else if (genNum == 2 || genNum == 6 || genNum == 10) {

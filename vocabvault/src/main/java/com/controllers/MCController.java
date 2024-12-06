@@ -85,6 +85,7 @@ public class MCController implements Initializable{
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
             facade.incQNum();
+            completeLbl.setText("Correct! Great job!");
             completeLbl.setVisible(true);
             okBtn.setVisible(false);
             nextBtn.setVisible(true);
