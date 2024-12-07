@@ -115,15 +115,7 @@ public class VocabVaultFACADE {
     public void createLevel(Book book) {
         level = new Level(1, book);
         for (int i = 0; i < 12; i++) {
-            if (i == 3 || i == 7 || i == 11) {
-                questions.add(level.getQuestion(qNum));
-            } else if (i == 2 || i == 6 || i == 10) {
-                questions.add(level.getQuestion( qNum));
-            } else if (i == 1 || i == 5|| i == 9) {
-                questions.add(level.getQuestion(qNum));
-            } else {
-                questions.add(level.getQuestion(qNum));
-            }
+            questions.add(level.getQuestion(i));
         }
         for (Question q : level.getAllQuestions()) {
             System.out.println(q.toString());
@@ -143,17 +135,8 @@ public class VocabVaultFACADE {
         this.qNum = qNum + 1;
     }
 
-    public Question iterateQuestions() {
-        if (iterator == null) {
-            iterator = level.getAllQuestions().iterator();
-        }
-        while (iterator.hasNext()) {
-            Question currQ = iterator.next();
-            iterator.remove();
-            qNum++;
-            return currQ;
-        }
-        return null;
+    public Question nextQuestion() {
+        return this.level.getQuestion(qNum);
     }
 
     public Level getLevel() {

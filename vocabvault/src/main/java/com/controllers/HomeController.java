@@ -15,7 +15,7 @@ public class HomeController {
 
     @FXML
     private void clickQuiz(ActionEvent event) throws IOException {
-        App.setRoot("quiz");
+        App.setRoot("multiplechoice");
     }
 
     @FXML

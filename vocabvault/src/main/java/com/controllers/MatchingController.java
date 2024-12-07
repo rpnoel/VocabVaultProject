@@ -35,11 +35,12 @@ public class MatchingController implements Initializable{
     @FXML
     private Button nextBtn;
     private String userAnswer;
+    private Question currQ;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.iterateQuestions();
+        currQ = facade.nextQuestion();
         setQuestion(currQ);
     }
 
@@ -79,7 +80,6 @@ public class MatchingController implements Initializable{
     @FXML
     private void checkAnswer(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.iterateQuestions();
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
             facade.incQNum();

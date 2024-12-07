@@ -36,11 +36,12 @@ public class MCController implements Initializable{
     @FXML
     private Button nextBtn;
     private String userAnswer;
+    private Question currQ;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.iterateQuestions();
+        currQ = facade.nextQuestion();
         setQuestion(currQ);
         completeLbl.setVisible(false);
         okBtn.setVisible(true);
@@ -81,17 +82,14 @@ public class MCController implements Initializable{
     @FXML
     private void checkAnswer(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        Question currQ = facade.iterateQuestions();
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
-            facade.incQNum();
             completeLbl.setText("Correct! Great job!");
             completeLbl.setVisible(true);
             okBtn.setVisible(false);
             nextBtn.setVisible(true);
         } else {
             facade.getLevel().score(false);
-            facade.incQNum();
             completeLbl.setText("Incorrect. Try again!");
             completeLbl.setVisible(true);
             okBtn.setVisible(false);
