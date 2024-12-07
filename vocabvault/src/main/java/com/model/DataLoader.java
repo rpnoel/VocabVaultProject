@@ -42,6 +42,11 @@ public class DataLoader extends DataConstants {
                 
                 User user = new User(userName, email, firstName, lastName, password);
 
+                int totalQuestionsAnswered = ((Long)userJSON.get(TOTAL_QUESTIONS_ANSWERED)).intValue();
+                user.setTotalQuestionsAnswered(totalQuestionsAnswered);
+                int correctAnswers = ((Long)userJSON.get(CORRECT_ANSWERS)).intValue();
+                user.setCorrectAnswers(correctAnswers);
+                
                 
                 JSONArray missedQuestionsArray = (JSONArray) userJSON.get(MISSED_QUESTIONS);
                 ArrayList<String> missedQuestions = new ArrayList<>();

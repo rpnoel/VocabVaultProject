@@ -9,6 +9,8 @@ public abstract class DataConstants {
     protected static final String PASSWORD = "password";
     protected static final String MISSED_QUESTIONS = "missedQuestions";
     protected static final String MISSED_WORDS = "missedWords";
+    protected static final String TOTAL_QUESTIONS_ANSWERED = "totalQuestionsAnswered";
+    protected static final String CORRECT_ANSWERS = "correctAnswers";
 
     public static boolean isJUnitTest(){
         for(StackTraceElement element : Thread.currentThread().getStackTrace()){

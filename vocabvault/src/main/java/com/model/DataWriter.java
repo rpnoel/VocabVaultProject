@@ -54,6 +54,8 @@ public class DataWriter extends DataConstants {
         JSONArray missedWordsArray = new JSONArray();
         missedWordsArray.addAll(user.getMissedW());
         userDetails.put(MISSED_WORDS, missedWordsArray);
+        userDetails.put(TOTAL_QUESTIONS_ANSWERED, user.getTotalQuestionsAnswered());
+        userDetails.put(CORRECT_ANSWERS, user.getCorrectAnswers());
         return userDetails;
     }
 

@@ -13,6 +13,8 @@ public class User {
     private String password;
     private ArrayList<String> missedQuestions;
     private ArrayList<String> missedWords;
+    private int totalQuestionsAnswered; 
+    private int correctAnswers;        
 
     public User(String username, String email, String firstName, String lastName, String password){
         this.userID = UUID.randomUUID();
@@ -23,6 +25,8 @@ public class User {
         this.password = password;
         this.missedQuestions = new ArrayList<>();
         this.missedWords = new ArrayList<>();
+        this.totalQuestionsAnswered = 0; 
+        this.correctAnswers = 0;         
     }
 
     public User(UUID userID, String username, String email, String firstName, String lastName, String password){
@@ -146,6 +150,22 @@ public class User {
         public void setMissedQuestions(ArrayList<String> missedQuestions) {
             this.missedQuestions = missedQuestions;
         }
+
+    public int getTotalQuestionsAnswered() {
+        return totalQuestionsAnswered;
+    }
+
+    public void setTotalQuestionsAnswered(int totalQuestionsAnswered) {
+        this.totalQuestionsAnswered = totalQuestionsAnswered;
+    }
+
+    public int getCorrectAnswers() {
+        return correctAnswers;
+    }
+
+    public void setCorrectAnswers(int correctAnswers) {
+        this.correctAnswers = correctAnswers;
+    }
     
 
     

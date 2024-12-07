@@ -11,6 +11,7 @@
       <Label text="Home" />
       <Button fx:id="readBtn" mnemonicParsing="false" onAction="#clickRead" text="Read a story" />
       <Button fx:id="quizBtn" mnemonicParsing="false" onAction="#clickQuiz" text="Test your knowledge" />
+      <Button fx:id="progressBtn" layoutX="192.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickProgress" text="Progress" />
       <Button fx:id="logOutBtn" mnemonicParsing="false" onAction="#clickLogOut" text="Log Out" />
    </children>
    <padding>

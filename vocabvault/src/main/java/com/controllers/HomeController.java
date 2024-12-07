@@ -19,6 +19,11 @@ public class HomeController {
     }
 
     @FXML
+    private void clickProgress(ActionEvent event) throws IOException {
+        App.setRoot("progress");
+    }
+
+    @FXML
     private void clickLogOut(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         facade.logout();

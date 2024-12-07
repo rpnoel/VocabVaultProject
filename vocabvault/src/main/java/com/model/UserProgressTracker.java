@@ -13,8 +13,8 @@ public class UserProgressTracker {
 
     public UserProgressTracker(User user) {
         this.user = user;
-        this.totalQuestionsAnswered = 0;
-        this.correctAnswers = 0;
+        this.totalQuestionsAnswered = user.getTotalQuestionsAnswered();
+        this.correctAnswers = user.getCorrectAnswers();
         this.missedQuestions = user.getMissedQ();
         this.missedWords = user.getMissedW();
         this.language = "Spanish";
@@ -28,8 +28,10 @@ public class UserProgressTracker {
      */
     public void logQuestion(String question, boolean isCorrect) {
         totalQuestionsAnswered++;
+        user.setTotalQuestionsAnswered(totalQuestionsAnswered);
         if (isCorrect) {
             correctAnswers++;
+            user.setCorrectAnswers(correctAnswers);
         } else {
             if (!missedQuestions.contains(question)) {
                 missedQuestions.add(question); 

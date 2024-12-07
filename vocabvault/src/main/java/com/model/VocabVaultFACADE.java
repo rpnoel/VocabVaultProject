@@ -76,6 +76,10 @@ public class VocabVaultFACADE {
             }
             return currentUser.getUsername();
         }
+
+        public User currUser(){
+            return currentUser;
+        }
         
 
     public void logout(){
@@ -224,6 +228,10 @@ public class VocabVaultFACADE {
                 System.out.println("Incorrect");
             }
         }
+    }
+    public static void main(String[] args) {
+        VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
+        facade.play();
     }
 }
 
