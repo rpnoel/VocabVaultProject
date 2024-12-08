@@ -8,6 +8,7 @@
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.TFController">
    <children>
       <Label fx:id="tfQuestionLbl" text="Question" />
+      <Button fx:id="playNarriator" mnemonicParsing="false" onAction="#clickAudio" text="Play Audio" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button fx:id="trueBtn" mnemonicParsing="false" onAction="#clickTrue" text="True" />

@@ -13,7 +13,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.vocabvault.App;
 import com.model.Question;
+import com.model.User;
+import com.model.UserProgressTracker;
 import com.model.VocabVaultFACADE;
+import com.narraration.Narriator;
 
 public class FITBController implements Initializable {
     @FXML
@@ -26,6 +29,8 @@ public class FITBController implements Initializable {
     private Label completeLbl;
     @FXML
     private Button okBtn;
+    @FXML
+    private Button playNarriator;
     @FXML
     private Button nextBtn;
     private String userAnswer;
@@ -44,12 +49,21 @@ public class FITBController implements Initializable {
     @FXML
     public void setQuestion(Question q) {
         fitbQuestionLbl.setText(q.getQText());
-
     }
+
+    @FXML
+    private void clickAudio(ActionEvent event) throws IOException {
+        Narriator.playSound(currQ.toString());
+    }
+
 
     @FXML
     private void checkAnswer(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
+        User currentUser = facade.currUser();
+       UserProgressTracker usrProg = new UserProgressTracker(currentUser);
+       Boolean corr = currQ.checkAnswer(userAnswer); 
+       usrProg.logQuestion(currQ.getQText(), corr);
         userAnswer = blank.getText();
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);

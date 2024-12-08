@@ -19,6 +19,7 @@
       <RadioButton fx:id="matchChoice3" mnemonicParsing="false" onAction="#clickChoice3" text="RadioButton" />
       <RadioButton fx:id="matchChoice4" mnemonicParsing="false" onAction="#clickChoice4" text="RadioButton" />
       <Label fx:id="completeLbl" prefHeight="31.0" prefWidth="178.0" text="Correct! Great job!" visible="false" />
+      <Button fx:id="playNarriator" mnemonicParsing="false" onAction="#clickAudio" text="Play Audio" />
       <Button fx:id="okBtn" mnemonicParsing="false" onAction="#checkAnswer" text="OK" />
       <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#clickNext" text="Next question" visible="false" />
    </children>

@@ -13,7 +13,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import com.vocabvault.App;
 import com.model.Question;
+import com.model.User;
+import com.model.UserProgressTracker;
 import com.model.VocabVaultFACADE;
+import com.narraration.Narriator;
 
 public class TFController implements Initializable {
     @FXML
@@ -26,6 +29,8 @@ public class TFController implements Initializable {
     private Button falseBtn;
     @FXML
     private Button nextBtn;
+    @FXML
+    private Button playNarriator;
     private String userAnswer;
     private Question currQ;
     private boolean corrAnswer;
@@ -60,9 +65,19 @@ public class TFController implements Initializable {
         checkAnswer();
     }
 
+    @FXML
+    private void clickAudio(ActionEvent event) throws IOException {
+        Narriator.playSound(currQ.toString());
+    }
+
+
     private void checkAnswer() {
         //parse string to bool
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
+        User currentUser = facade.currUser();
+       UserProgressTracker usrProg = new UserProgressTracker(currentUser);
+       Boolean corr = currQ.checkAnswer(userAnswer); 
+       usrProg.logQuestion(currQ.getQText(), corr);
         boolean userBool = Boolean.parseBoolean(userAnswer);
         if (userBool == corrAnswer) {
             facade.getLevel().score(true);
