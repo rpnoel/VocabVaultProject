@@ -33,8 +33,9 @@ public class TFController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        currQ = facade.nextQuestion();
+        currQ = facade.getQList().get((facade.getQNum()));
         setQuestion(currQ);
+        facade.nextQuestion();
     }
     
     @FXML
@@ -50,27 +51,26 @@ public class TFController implements Initializable {
     @FXML
     private void clickTrue(ActionEvent event) {
         this.userAnswer = "true";
+        checkAnswer();
     }
 
     @FXML
     private void clickFalse(ActionEvent event) {
         this.userAnswer = "false";
+        checkAnswer();
     }
 
-    @FXML
-    private void checkAnswer(ActionEvent event) throws IOException {
+    private void checkAnswer() {
         //parse string to bool
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         boolean userBool = Boolean.parseBoolean(userAnswer);
         if (userBool == corrAnswer) {
             facade.getLevel().score(true);
-            facade.incQNum();
             completeLbl.setText("Correct! Great job!");
             completeLbl.setVisible(true);
             nextBtn.setVisible(true);
         } else {
             facade.getLevel().score(false);
-            facade.incQNum();
             completeLbl.setText("Incorrect. Try again!");
             completeLbl.setVisible(true);
             nextBtn.setVisible(true);
@@ -80,7 +80,7 @@ public class TFController implements Initializable {
     @FXML
     private void clickNext(ActionEvent event) throws IOException {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        if (facade.getQNum() == 12) {
+        if (facade.getQNum() == 11) {
             App.setRoot("progress");
         } else {
             App.setRoot("multiplechoice");

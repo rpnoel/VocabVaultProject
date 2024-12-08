@@ -92,6 +92,7 @@ public class MultipleChoice extends Question {
     @Override
     public boolean checkAnswer(String userAnswer) {
         Integer userInt = userStringToInt(userAnswer);
+        userInt--;
         if (userInt.equals(correctAnswer)) {
             return true;
         } else {

@@ -46,6 +46,11 @@ public class FillInTheBlank extends Question {
         return null;
     }
 
+    @Override
+    public String getQText() {
+        return this.questionText;
+    }
+
     /**
      * Gets the correct answer for this question.
      *

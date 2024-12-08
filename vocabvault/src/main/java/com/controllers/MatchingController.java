@@ -40,15 +40,19 @@ public class MatchingController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        currQ = facade.nextQuestion();
+        currQ = facade.getQList().get((facade.getQNum()));
+        System.out.println(facade.getQNum());
+        System.out.println(currQ.toString());
         setQuestion(currQ);
+        facade.nextQuestion();
+        completeLbl.setVisible(false);
+        okBtn.setVisible(true);
     }
 
     @FXML
     public void setQuestion(Question q) {
         matchQuestionLbl.setText(q.getQText());
         ArrayList<String> choices = new ArrayList<String>();
-        System.out.println(q.returnChoices().toString());
         choices = q.returnChoices();
         matchChoice1.setText(choices.get(0));
         matchChoice2.setText(choices.get(1));
@@ -82,20 +86,17 @@ public class MatchingController implements Initializable{
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
-            facade.incQNum();
             completeLbl.setText("Correct! Great job!");
             completeLbl.setVisible(true);
             okBtn.setVisible(false);
             nextBtn.setVisible(true);
         } else {
             facade.getLevel().score(false);
-            facade.incQNum();
             completeLbl.setText("Incorrect. Try again!");
             completeLbl.setVisible(true);
             okBtn.setVisible(false);
             nextBtn.setVisible(true);
         }
-        facade.incQNum();
     }
     @FXML
     private void clickNext(ActionEvent event) throws IOException {

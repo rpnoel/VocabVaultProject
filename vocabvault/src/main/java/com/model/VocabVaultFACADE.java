@@ -117,26 +117,21 @@ public class VocabVaultFACADE {
         for (int i = 0; i < 12; i++) {
             questions.add(level.getQuestion(i));
         }
-        for (Question q : level.getAllQuestions()) {
-            System.out.println(q.toString());
-        }
     } 
 
-    public Question getQuestion() {
-        return this.level.getQuestion(qNum);
+    public ArrayList<Question> getQList() {
+        return this.questions;
     }
 
     public int getQNum() {
         return this.qNum;
     }
 
-    public void incQNum() {
-        //increase qnum by 1
-        this.qNum = qNum + 1;
-    }
-
-    public Question nextQuestion() {
-        return this.level.getQuestion(qNum);
+    public void nextQuestion() {
+        if (qNum < 11) {
+            this.qNum++;
+            this.currQ = this.level.getQuestion(qNum);
+        }
     }
 
     public Level getLevel() {

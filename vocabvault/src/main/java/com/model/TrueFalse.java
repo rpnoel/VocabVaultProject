@@ -71,7 +71,8 @@ public class TrueFalse extends Question {
      *
      * @return the question text
      */
-    public String getQuestionText() {
+    @Override
+    public String getQText() {
         return this.questionText;
     }
 

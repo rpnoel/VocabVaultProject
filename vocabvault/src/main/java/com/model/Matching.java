@@ -123,6 +123,11 @@ public class Matching extends Question {
         return this.wordText;
     }
 
+    @Override
+    public String getQText() {
+        return this.questionText;
+    }
+
     /**
      * Returns a string representation of the matching question.
      *

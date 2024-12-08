@@ -41,8 +41,10 @@ public class MCController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        currQ = facade.nextQuestion();
+        currQ = facade.getQList().get((facade.getQNum()));
+        System.out.println(facade.getQNum());
         setQuestion(currQ);
+        facade.nextQuestion();
         completeLbl.setVisible(false);
         okBtn.setVisible(true);
     }
@@ -95,7 +97,6 @@ public class MCController implements Initializable{
             okBtn.setVisible(false);
             nextBtn.setVisible(true);
         }
-        facade.incQNum();
     } 
 
     @FXML

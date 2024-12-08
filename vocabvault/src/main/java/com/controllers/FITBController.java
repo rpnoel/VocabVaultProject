@@ -34,8 +34,11 @@ public class FITBController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         VocabVaultFACADE facade = VocabVaultFACADE.getInstance();
-        currQ = facade.nextQuestion();
+        currQ = facade.getQList().get((facade.getQNum()));
+        System.out.println(currQ.toString());
         setQuestion(currQ);
+        facade.nextQuestion();
+        okBtn.setVisible(true);
     }
     
     @FXML
@@ -50,13 +53,12 @@ public class FITBController implements Initializable {
         userAnswer = blank.getText();
         if (currQ.checkAnswer(userAnswer)) {
             facade.getLevel().score(true);
-            facade.incQNum();
+            completeLbl.setText("Correct! Great job!");
             completeLbl.setVisible(true);
             okBtn.setVisible(false);
             nextBtn.setVisible(true);
         } else {
             facade.getLevel().score(false);
-            facade.incQNum();
             completeLbl.setText("Incorrect. Try again!");
             completeLbl.setVisible(true);
             okBtn.setVisible(false);
